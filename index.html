@@ -26,7 +26,11 @@
     .left-section,
     .right-section {
       box-sizing: border-box;
+    }
+
+    .left-section {
       width: 60%;
+      border-right: 2px solid #5d5d5d;
     }
 
     .right-section {
@@ -34,20 +38,20 @@
       border-left: 2px solid #5d5d5d;
     }
 
-    .amount-row,
-    .amount-row-noflex,
-    .time-row {
+    .amount-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
+      font-family: 'ClearSans', sans-serif;
       font-size: 16px;
     }
 
-    .amount-row {
-      justify-content: space-between;
-    }
-
     .amount-row-noflex {
+      display: flex;
       justify-content: flex-end;
+      align-items: center;
+      font-family: 'ClearSans', sans-serif;
+      font-size: 16px;
     }
 
     .padding {
@@ -76,11 +80,23 @@
     }
 
     .rotate {
+      /* position: absolute;
+      top: 3px;
+      right: 0px;
+      display: inline-block; */
+      /* 必须设置为块级元素才能生效 */
+      /* transform: rotate(-45deg); */
+      /* 防止旋转后文字模糊 */
+      /* backface-visibility: hidden; */
+      /* 调整旋转中心点（可选） */
+      /* transform-origin: 50% 50%; */
       display: flex;
       align-items: center;
+      font-family: 'ClearSans', sans-serif;
       font-size: 12px;
     }
 
+    /* 新增样式 */
     .currency-input-container {
       display: inline-block;
       position: relative;
@@ -94,30 +110,24 @@
       outline: none;
       text-align: right;
       font-family: inherit;
-      font-size: 12px;
+      font-family: 'ClearSans', sans-serif;
+      font-size: 14px;
       background: transparent;
       font-weight: inherit;
+      /* 继承父级字重 */
     }
 
     .paddingRight {
       padding-right: 10px;
     }
 
-    .width-measure,
-    .date-measure {
+    /* 动态宽度调整相关 */
+    .width-measure {
       position: absolute;
       visibility: hidden;
       white-space: nowrap;
-      font-family: 'ClearSans', sans-serif;
-    }
-
-    .width-measure {
       padding: 4px 0;
-      font-size: 16px;
-    }
-
-    .date-measure {
-      padding: 0 30px 0 8px;
+      font-family: 'ClearSans', sans-serif;
       font-size: 16px;
     }
 
@@ -127,7 +137,9 @@
     }
 
     .time-row {
+      display: flex;
       justify-content: space-between;
+      align-items: center;
       padding: 26px 15px;
     }
 
@@ -146,6 +158,7 @@
       border: none;
       font-family: inherit;
       font-size: 16px;
+      font-family: 'ClearSans', sans-serif;
       background: transparent;
     }
 
@@ -153,10 +166,13 @@
       width: 80px;
       height: 40px;
       flex-shrink: 0;
+      font-family: 'ClearSans', sans-serif;
+      font-size: 16px;
       display: flex;
       align-items: center;
       gap: 8px;
       color: #212121;
+      /* font-weight: 600; */
     }
 
     .icon-calendar,
@@ -170,6 +186,7 @@
     }
 
     .iconfont {
+      font-family: 'ClearSans', sans-serif;
       font-size: 20px;
     }
 
@@ -178,45 +195,81 @@
       transform: translateY(-0.1em);
     }
 
+    /* .icon-calendar {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23555555'%3E%3Cpath d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2zm-8 4H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z'/%3E%3C/svg%3E");
+    }
+
+    .icon-clock {
+      background-image: url("&#xe67c;");
+    } */
+
     .date-time-input {
       flex: 1;
       padding: 6px 30px 6px 8px;
       border: none;
+      font-family: inherit;
+      font-family: 'ClearSans', sans-serif;
       font-size: 16px;
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat right 8px center;
       background-size: 12px;
       -webkit-appearance: none;
     }
 
+    /* 调整日期输入框样式 */
     .date-time-input.date-field {
       outline: none;
       padding-right: 30px !important;
+      /* 留出旋转图标空间 */
       width: auto !important;
       min-width: 120px;
+      font-family: 'ClearSans', sans-serif;
       font-size: 18px;
       font-weight: 600;
+      /* 初始最小宽度 */
     }
 
+    /* 增加日期输入框样式 */
     .date-field {
+      font-family: 'ClearSans', sans-serif;
       appearance: none;
       -webkit-appearance: none;
       min-width: 120px;
       text-align: right;
     }
 
+    /* 旋转图标定位优化 */
     .date-rotate {
       display: flex;
       align-items: center;
+      /* position: absolute; */
+      /* right: 8px; */
+      /* top: 45%; */
+      /* transform: translateY(-50%) rotate(-45deg); */
       pointer-events: auto !important;
+      /* 允许接收点击事件 */
       cursor: pointer;
+      /* 显示手型光标 */
       z-index: 4;
       font-size: 12px;
+      /* 确保图标在输入框上层 */
     }
 
     .icon-xiasanjiao {
+      font-family: 'ClearSans', sans-serif;
       font-size: 6px;
     }
 
+    /* 动态测量元素 */
+    .date-measure {
+      position: absolute;
+      visibility: hidden;
+      white-space: nowrap;
+      font: 16px ClearSans;
+      padding: 0 30px 0 8px;
+      /* 保持与输入框相同padding */
+    }
+
+    /* 隐藏原生输入控件边框 */
     input::-webkit-inner-spin-button,
     input::-webkit-calendar-picker-indicator {
       -webkit-appearance: none;
@@ -228,6 +281,7 @@
       visibility: hidden;
     }
 
+    /* 日期输入框容器 */
     .date-input-wrapper {
       position: relative;
       display: inline-flex;
@@ -236,6 +290,7 @@
       flex: 1;
     }
 
+    /* 原生日期输入框样式 */
     input[type="date"] {
       padding-right: 30px !important;
       width: auto !important;
@@ -243,9 +298,11 @@
       text-align: right;
       appearance: none;
       -webkit-appearance: none;
+      /* 等宽字体保证对齐 */
       text-transform: none !important;
     }
 
+    /* 隐藏原生日历图标 */
     input[type="date"]::-webkit-calendar-picker-indicator {
       opacity: 0;
       width: 100%;
@@ -256,6 +313,7 @@
       z-index: 3;
     }
 
+    /* 覆盖浏览器默认日期组件样式 */
     input[type="date"]::-webkit-datetime-edit {
       color: inherit;
       font: inherit;
@@ -279,8 +337,33 @@
       padding: 6px 10px 6px 8px;
       min-width: 120px;
       text-align: right;
+      font-family: 'ClearSans', sans-serif;
       font-size: 20px;
       font-weight: 600;
+    }
+
+    .icon-xiasanjiao {
+      font-family: 'ClearSans', sans-serif;
+      font-size: 6px;
+    }
+
+    input[type="date"] {
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 保持输入框最小宽度 */
+    .date-field {
+      min-width: 120px;
+      padding-right: 30px !important;
+    }
+
+    .currency-symbol {
+      display: flex;
+      align-items: center;
     }
 
     .time-right {
@@ -288,6 +371,7 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
+      font-family: 'ClearSans', sans-serif;
       font-size: 12px;
       color: #838383;
     }
@@ -301,6 +385,7 @@
     }
 
     .time-range {
+      font-family: 'ClearSans', sans-serif;
       color: #000;
       font-size: 16px;
       font-weight: 600;
@@ -315,6 +400,8 @@
       padding: 4px 8px;
       border-radius: 4px;
       transition: background 0.2s;
+      font-family: 'ClearSans', sans-serif;
+      font-weight: 600;
     }
 
     .start-time:hover,
@@ -323,6 +410,7 @@
     }
 
     .time-picker-modal {
+      /* 保持原有模态框样式 */
       position: fixed;
       top: 50%;
       left: 50%;
@@ -334,6 +422,7 @@
       z-index: 1000;
     }
 
+    /* 新增时间输入框样式 */
     .time-input-wrapper {
       position: relative;
       display: inline-block;
@@ -355,6 +444,7 @@
       padding: 4px 0px;
       border-radius: 4px;
       transition: background 0.2s;
+      font-family: 'ClearSans', sans-serif;
       font-size: 16px;
       font-weight: 600;
       color: #333;
@@ -384,7 +474,7 @@
 
       <div class="amount-group">
         <div class="amount-row solid paddingRandon bgColor">
-          <span>支付宝</span>
+          <span>微信支付</span>
           <input type="number" class="currency-input" value="39.60" step="0.01" />
         </div>
         <div class="amount-row solid paddingRandon bgColor">
@@ -396,11 +486,11 @@
           <input type="number" class="currency-input" value="39.60" step="0.01" />
         </div>
       </div>
-
+      
       <div class="amount-group">
         <div class="amount-row solid paddingRandon bgColor">
-          <span>微信</span>
-          <input type="number" class="currency-input" value="39.60" step="0.01" />
+          <span>支付宝</span>
+          <input type="number" class="currency-input" value="59.90" step="0.01" />
         </div>
         <div class="amount-row solid paddingRandon bgColor">
           <span>退款</span>
@@ -408,11 +498,11 @@
         </div>
         <div class="amount-row-noflex solid paddingRandon bgColor boldText">
           <span>小计</span>
-          <input type="number" class="currency-input" value="39.60" step="0.01" />
+          <input type="number" class="currency-input" value="59.90" step="0.01" />
         </div>
       </div>
     </div>
-
+    
     <!-- 右边日期时间部分 -->
     <div class="right-section">
       <div class="time-group">
@@ -459,121 +549,118 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <script>
-    // 点击日期区域触发日期选择
-    function handleDateClick(container) {
-      const input = container.querySelector('input[type="date"]');
-      input.showPicker(); // 触发原生日期选择器
+    <script>
+      // 点击日期区域触发日期选择
+      function handleDateClick(container) {
+        const input = container.querySelector('input[type="date"]');
+        input.showPicker(); // 触发原生日期选择器
 
-      // 移动端兼容处理
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        input.focus();
+        // 移动端兼容处理
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+          input.focus();
+        }
       }
-    }
 
-    // 时间选择处理函数
-    function handleTimePicker(container, type) {
-      const input = container.querySelector('input[type="time"]');
-      input.showPicker();
+      // 时间选择处理函数
+      function handleTimePicker(container, type) {
+        const input = container.querySelector('input[type="time"]');
+        input.showPicker();
 
-      // 移动端兼容处理
-      if (/Mobi|Android/i.test(navigator.userAgent)) {
-        input.focus();
+        // 移动端兼容处理
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+          input.focus();
+        }
       }
-    }
 
-    // 初始化时间输入监听
-    function initTimeInputListeners() {
+      // 初始化时间输入监听
       document.querySelectorAll('.native-time-input').forEach(input => {
         input.addEventListener('change', function () {
           const displayElement = this.parentNode.querySelector('.time-display');
           displayElement.textContent = formatTime(this.value);
         });
       });
-    }
 
-    function confirmTimeSelection(button) {
-      const modal = button.closest('.time-picker-modal');
-      const timeInput = modal.querySelector('input[type="time"]');
-      const formattedTime = formatTime(timeInput.value);
+      function confirmTimeSelection(button) {
+        const modal = button.closest('.time-picker-modal');
+        const timeInput = modal.querySelector('input[type="time"]');
+        const formattedTime = formatTime(timeInput.value);
 
-      // 更新对应显示
-      if (currentEditType === 'start') {
-        document.querySelector('.start-time').textContent = formattedTime;
-      } else {
-        document.querySelector('.end-time').textContent = formattedTime;
+        // 更新对应显示
+        if (currentEditType === 'start') {
+          document.querySelector('.start-time').textContent = formattedTime;
+        } else {
+          document.querySelector('.end-time').textContent = formattedTime;
+        }
+
+        modal.remove();
       }
 
-      modal.remove();
-    }
-
-    function formatTime(timeString) {
-      return timeString.substring(0, 5);
-    }
-
-    // 优化后的日期更新联动
-    function updateDateDisplay(input) {
-      const date = new Date(input.value);
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-
-      // 更新时间区域的日期显示
-      document.querySelectorAll('.time-right-top span').forEach(span => {
-        span.textContent = `${month}-${day}`;
-      });
-
-      // 原有日期显示逻辑...
-      const dateSpan = input.parentNode.querySelector('.date');
-      dateSpan.textContent = formatDate(input.value);
-      resizeDateInput(input, dateSpan.textContent);
-    }
-
-    // 日期格式化函数
-    function formatDate(dateString) {
-      if (!dateString) return 'YYYY-MM-DD';
-      const date = new Date(dateString);
-
-      // 格式校验
-      if (isNaN(date)) {
-        console.error('Invalid date format');
-        return 'YYYY-MM-DD';
+      function formatTime(timeString) {
+        return timeString.substring(0, 5);
       }
 
-      // 使用Intl API处理本地化格式
-      return new Intl.DateTimeFormat('zh-CN', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit'
-      }).format(date).replace(/\//g, '-');
-    }
+      // 优化后的日期更新联动
+      function updateDateDisplay(input) {
+        const date = new Date(input.value);
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
 
-    // 动态宽度调整（优化版本）
-    function resizeDateInput(input, value) {
-      const measure = document.createElement('span');
-      measure.className = 'date-measure';
-      measure.textContent = value || input.value;
+        // 更新时间区域的日期显示
+        document.querySelectorAll('.time-right-top span').forEach(span => {
+          span.textContent = `${month}-${day}`;
+        });
 
-      // 同步样式
-      const style = window.getComputedStyle(input);
-      measure.style.cssText = `
-        font-family: ${style.fontFamily};
-        font-size: ${style.fontSize};
-        padding: ${style.padding};
-        letter-spacing: ${style.letterSpacing};
-        visibility: hidden;
-        position: absolute;
-        white-space: nowrap;
-      `;
+        // 原有日期显示逻辑...
+        const dateSpan = input.parentNode.querySelector('.date');
+        dateSpan.textContent = formatDate(input.value);
+        resizeDateInput(input, dateSpan.textContent);
+      }
 
-      document.body.appendChild(measure);
-      input.style.width = `${measure.offsetWidth + 32}px`; // 包含图标区域
-      document.body.removeChild(measure);
-    }
 
-    // 初始化日期显示
-    function initDateDisplay() {
+      // 日期格式化函数
+      function formatDate(dateString) {
+        if (!dateString) return 'YYYY-MM-DD';
+        const date = new Date(dateString);
+
+        // 格式校验
+        if (isNaN(date)) {
+          console.error('Invalid date format');
+          return 'YYYY-MM-DD';
+        }
+
+        // 使用Intl API处理本地化格式
+        return new Intl.DateTimeFormat('zh-CN', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit'
+        }).format(date).replace(/\//g, '-');
+      }
+
+      // 动态宽度调整（优化版本）
+      function resizeDateInput(input, value) {
+        const measure = document.createElement('span');
+        measure.className = 'date-measure';
+        measure.textContent = value || input.value;
+
+        // 同步样式
+        const style = window.getComputedStyle(input);
+        measure.style.cssText = `
+          font-family: ${style.fontFamily};
+          font-size: ${style.fontSize};
+          padding: ${style.padding};
+          letter-spacing: ${style.letterSpacing};
+          visibility: hidden;
+          position: absolute;
+          white-space: nowrap;
+        `;
+
+        document.body.appendChild(measure);
+        input.style.width = `${measure.offsetWidth + 32}px`; // 包含图标区域
+        document.body.removeChild(measure);
+      }
+
+      // 初始化日期显示
       document.querySelectorAll('input[type="date"]').forEach(input => {
         // 设置默认值
         if (!input.value) {
@@ -591,28 +678,27 @@
           }
         });
       });
-    }
 
-    // 优化后的动态宽度调整
-    function resizeInput(input) {
-      const measure = document.createElement("span");
-      measure.className = "width-measure";
+      // 优化后的动态宽度调整
+      function resizeInput(input) {
+        const measure = document.createElement("span");
+        measure.className = "width-measure";
 
-      // 同步所有字体样式
-      const style = window.getComputedStyle(input);
-      measure.style.font = style.font;
-      measure.style.letterSpacing = style.letterSpacing;
+        // 同步所有字体样式
+        const style = window.getComputedStyle(input);
+        measure.style.font = style.font;
+        measure.style.letterSpacing = style.letterSpacing;
 
-      // 在测量值前添加¥符号
-      measure.textContent = "¥" + (input.value || "0.00");
-      document.body.appendChild(measure);
+        // 在测量值前添加¥符号
+        measure.textContent = "¥" + (input.value || "0.00");
+        document.body.appendChild(measure);
 
-      input.style.width = `${measure.offsetWidth - 8}px`; // 补偿符号间距
-      document.body.removeChild(measure);
-    }
+        document.body.appendChild(measure);
+        input.style.width = `${measure.offsetWidth - 8}px`; // 补偿符号间距
+        document.body.removeChild(measure);
+      }
 
-    // 初始化逻辑优化
-    function initInputLogic() {
+      // 初始化逻辑优化
       document.querySelectorAll("input").forEach((input) => {
         // 时间日期输入框不需要处理
         if (input.type === "date" || input.type === "time") {
@@ -656,29 +742,14 @@
         input.parentNode.style.display = "inline-flex";
         resizeInput(input);
       });
-    }
 
-    // 自动格式化金额输入
-    function formatAmountInputs() {
+      // 自动格式化金额输入
       document.querySelectorAll('input[type="number"]').forEach((input) => {
         input.addEventListener("blur", (e) => {
           e.target.value = parseFloat(e.target.value || 0).toFixed(2);
         });
       });
-    }
-
-    // 初始化所有逻辑
-    function init() {
-      initTimeInputListeners();
-      initDateDisplay();
-      initInputLogic();
-      formatAmountInputs();
-    }
-
-    // 页面加载完成后执行初始化
-    window.addEventListener('load', init);
-  </script>
+    </script>
 </body>
 
-</html>
-    
+</html>    
